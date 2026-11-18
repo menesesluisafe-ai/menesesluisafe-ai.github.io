@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lalu — Graphic Designer</title>
+<meta name="description" content="I'm Lalu (Luisa Fe Meneses), a graphic designer building brand identities, campaigns, and editorial layouts that are as strategic as they are meaningful.">
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lalu — Graphic Designer">
+<meta property="og:description" content="Design for brands and organizations that stand for something.">
+<meta property="og:image" content="https://menesesluisafe-ai.github.io/assets/og.jpg">
+<meta property="og:url" content="https://menesesluisafe-ai.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+html,body{margin:0;background:#000;color:#F5F0E8;font-family:'Schibsted Grotesk',sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#F5F0E8;text-decoration:none}
+a:hover{color:#C4567A}
+button,input,textarea,select{font:inherit;color:inherit}
+::selection{background:#8B1A2E;color:#F5F0E8}
+:focus-visible{outline:2px solid #C4567A;outline-offset:2px}
+img{max-width:100%}
+
+/* hover states (were style-hover in the design file) */
+.btn-cream{background:#F5F0E8;color:#0f0507;border:0;border-radius:999px;cursor:pointer;font-weight:600;transition:background .2s,color .2s}
+.btn-cream:hover{background:#C4567A;color:#F5F0E8}
+.btn-ghost{background:transparent;border:1px solid rgba(245,240,232,0.28);border-radius:999px;cursor:pointer;font-weight:600;color:#F5F0E8;transition:background .2s}
+.btn-ghost:hover{background:rgba(245,240,232,0.08);color:#F5F0E8}
+.link-btn{background:none;border:0;padding:0;cursor:pointer;font-weight:600;color:#F5F0E8}
+.link-btn:hover{color:#C4567A}
+.muted-link{color:#8A7A80}
+.muted-link:hover{color:#F5F0E8}
+.nav-btn{border:0;border-radius:999px;padding:8px 14px;cursor:pointer;font-size:14px;font-weight:500;transition:background .2s,color .2s}
+.nav-btn:hover{color:#F5F0E8 !important;background:rgba(245,240,232,0.08) !important}
+.card{background:none;border:0;padding:0;cursor:pointer;text-align:left;display:grid;gap:14px;color:#F5F0E8}
+.card:hover{color:#F5F0E8}
+.card img{transition:transform .5s ease}
+.card:hover img{transform:scale(1.04)}
+.svc-card{transition:border-color .2s}
+.svc-card:hover{border-color:rgba(196,86,122,0.5) !important}
+.dock-btn{transition:transform .15s}
+.dock-btn:hover{transform:translateY(-5px) scale(1.08);color:#F5F0E8}
+.tile:hover{background:rgba(245,240,232,0.16) !important;color:#FFFFFF}
+.next-btn:hover{background:#A3264A !important;color:#F5F0E8}
+.field{font-size:16px;color:#F5F0E8;padding:13px 14px;background:#000;border:1px solid rgba(245,240,232,0.16);border-radius:12px;outline:none}
+.field:focus{border-color:#C4567A}
+.pill-btn{border:1px solid rgba(245,240,232,0.18);border-radius:999px;padding:8px 14px;cursor:pointer;font-size:13px;font-weight:500}
+.stamp{cursor:zoom-in;transition:transform .2s}
+.stamp:hover{transform:translateY(-3px)}
+.zoomable{cursor:zoom-in}
+
+/* stickers hide on small screens (was the `narrow` check) */
+@media (max-width:759px){.sticker{display:none !important}}
+
+/* gallery: natural image heights */
+.gallery{columns:3 220px;column-gap:16px}
+.gallery>*{break-inside:avoid;margin-bottom:16px}
+
+/* lightbox */
+#lightbox{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,0.92);display:none;align-items:center;justify-content:center;padding:clamp(12px,4vw,48px)}
+#lightbox.open{display:flex}
+#lightbox img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,0.6)}
+.lb-btn{position:absolute;width:48px;height:48px;border-radius:50%;border:1px solid rgba(245,240,232,0.25);background:rgba(245,240,232,0.1);color:#F5F0E8;font-size:20px;cursor:pointer;display:grid;place-items:center;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.lb-btn:hover{background:rgba(245,240,232,0.2)}
+.lb-close{top:16px;right:16px}
+.lb-prev{left:16px;top:50%;transform:translateY(-50%)}
+.lb-next{right:16px;top:50%;transform:translateY(-50%)}
+.lb-count{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B8AAA0}
+</style>
+</head>
+<body>
+<div style="min-height:100vh;background:#000;overflow-x:hidden">
+
+<header style="position:sticky;top:0;z-index:50;background:rgba(0,0,0,0.7);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid rgba(245,240,232,0.08)">
+  <div style="max-width:1200px;margin:0 auto;padding:12px clamp(16px,4vw,40px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px">
+    <a href="#/" style="display:flex;align-items:baseline;gap:10px;color:#F5F0E8"><span style="font-family:'Newsreader',serif;font-style:italic;font-size:24px;line-height:1">Lalu</span><span style="font-size:12px;color:#8A7A80">Graphic Designer</span></a>
+    <nav id="nav" style="display:flex;align-items:center;gap:4px;flex-wrap:wrap"></nav>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<!-- FOOTER -->
+<footer style="position:relative;overflow:hidden;background:#1a0508 url('assets/tiles-burgundy.png') center/420px repeat">
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.35) 45%,rgba(26,56,40,0.45) 100%)"></div>
+  <div style="position:relative;max-width:1200px;margin:0 auto;padding:clamp(40px,5vw,72px) clamp(16px,4vw,40px) 16px;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(46%,160px),1fr))">
+    <div style="grid-column:1/-1;padding:clamp(24px,3vw,40px);border-radius:24px;background:rgba(245,240,232,0.08);border:1px solid rgba(255,255,255,0.22);box-shadow:inset 0 1px 0 rgba(255,255,255,0.3),0 20px 50px rgba(0,0,0,0.35);backdrop-filter:blur(20px) saturate(150%);-webkit-backdrop-filter:blur(20px) saturate(150%);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px">
+      <div style="display:grid;gap:8px">
+        <span style="font-size:clamp(26px,3vw,40px);font-weight:700;letter-spacing:-0.035em;line-height:1.1">Have a project in mind?</span>
+        <span style="font-size:16px;color:#E9DCCB">I'm currently taking on freelance work.</span>
+      </div>
+      <a href="#/contact" class="btn-cream" style="padding:14px 26px;font-size:15px">Start a project →</a>
+    </div>
+    <a href="mailto:menesesluisafe@gmail.com" class="tile" style="min-height:110px;padding:16px;border-radius:18px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;background:rgba(245,240,232,0.07);border:1px solid rgba(255,255,255,0.2);box-shadow:inset 0 1px 0 rgba(255,255,255,0.28),0 14px 34px rgba(0,0,0,0.3);backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);color:#F5F0E8"><span style="font-size:12px;color:#E9DCCB">Email</span><span style="display:flex;justify-content:space-between;align-items:end;gap:8px;font-size:18px;font-weight:600;letter-spacing:-0.01em">Write to me<span style="font-weight:400">↗</span></span></a>
+    <a href="https://www.linkedin.com/in/luisafemeneses/" target="_blank" rel="noopener" class="tile" style="min-height:110px;padding:16px;border-radius:18px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;background:rgba(245,240,232,0.07);border:1px solid rgba(255,255,255,0.2);box-shadow:inset 0 1px 0 rgba(255,255,255,0.28),0 14px 34px rgba(0,0,0,0.3);backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);color:#F5F0E8"><span style="font-size:12px;color:#E9DCCB">LinkedIn</span><span style="display:flex;justify-content:space-between;align-items:end;gap:8px;font-size:18px;font-weight:600;letter-spacing:-0.01em">Connect<span style="font-weight:400">↗</span></span></a>
+    <a href="#/work" class="tile" style="min-height:110px;padding:16px;border-radius:18px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;background:rgba(245,240,232,0.07);border:1px solid rgba(255,255,255,0.2);box-shadow:inset 0 1px 0 rgba(255,255,255,0.28),0 14px 34px rgba(0,0,0,0.3);backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);color:#F5F0E8"><span style="font-size:12px;color:#E9DCCB">Portfolio</span><span style="display:flex;justify-content:space-between;align-items:end;gap:8px;font-size:18px;font-weight:600;letter-spacing:-0.01em">Work<span style="font-weight:400">→</span></span></a>
+    <a href="#/services" class="tile" style="min-height:110px;padding:16px;border-radius:18px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;background:rgba(245,240,232,0.07);border:1px solid rgba(255,255,255,0.2);box-shadow:inset 0 1px 0 rgba(255,255,255,0.28),0 14px 34px rgba(0,0,0,0.3);backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);color:#F5F0E8"><span style="font-size:12px;color:#E9DCCB">Offer</span><span style="display:flex;justify-content:space-between;align-items:end;gap:8px;font-size:18px;font-weight:600;letter-spacing:-0.01em">Services<span style="font-weight:400">→</span></span></a>
+    <a href="#top" id="to-top" class="tile" style="min-height:110px;padding:16px;border-radius:18px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;background:rgba(245,240,232,0.07);border:1px solid rgba(255,255,255,0.2);box-shadow:inset 0 1px 0 rgba(255,255,255,0.28),0 14px 34px rgba(0,0,0,0.3);backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);color:#F5F0E8"><span style="font-size:12px;color:#E9DCCB">Back to</span><span style="display:flex;justify-content:space-between;align-items:end;gap:8px;font-size:18px;font-weight:600;letter-spacing:-0.01em">Top<span style="font-weight:400">↑</span></span></a>
+  </div>
+  <div style="position:relative;max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 24px;padding:16px clamp(16px,4vw,40px) 24px">
+    <span style="font-family:'Newsreader',serif;font-style:italic;font-size:20px">Lalu</span>
+    <span style="font-size:13px;color:#E9DCCB">© 2026 Luisa Fe Meneses</span>
+  </div>
+</footer>
+</div>
+
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <img id="lb-img" alt="">
+  <button class="lb-btn lb-close" id="lb-close" aria-label="Close">✕</button>
+  <button class="lb-btn lb-prev" id="lb-prev" aria-label="Previous image">←</button>
+  <button class="lb-btn lb-next" id="lb-next" aria-label="Next image">→</button>
+  <span class="lb-count" id="lb-count"></span>
+</div>
+
+<script>
+(function () {
+  const cream = '#F5F0E8', ink = '#0f0507', muted = '#B8AAA0';
+  const W = name => 'assets/work/' + name + '.jpg';
+
+  // ---------- DATA ----------
+  // [title, filterKey, category, cover (assets/*.jpg), gallery images (assets/work/*.jpg), featured-on-home]
+  const raw = [
+    ['Panagtipok', 'campaign', 'Campaign & Event', 'old-03', ['kasama--76']],
+    ['Fashion Magazine', 'editorial', 'Editorial & Print', 'old-04', ['magazine--p001', 'magazine--p004', 'magazine--p010', 'magazine--p012', 'magazine--p013', 'magazine--p021', 'magazine--p023', 'magazine--p026', 'magazine--p030', 'magazine--p036', 'magazine--p038', 'magazine--p054']],
+    ['CASS EC — Solidarity Walk', 'campaign', 'Campaign & Event', 'old-05', ['cass--solidarity', 'cass--cover-photo-martial-law', 'cass--artboard-1']],
+    ['CASS Merch — Arachnida', 'merch', 'Merchandise', 'old-06', ['cass-merch--black', 'cass-merch--colors', 'cass-merch--hoodie', 'cass-merch--white-shirt-f', 'cass-merch--white-shirt', 'cass-merch--tote-bag', 'cass-merch--tote-bag-2', 'cass--jersey-front-mock-up', 'cass--jersey-back-mockup', 'cass--jersey-short-front-mockup', 'cass--jersey-short-back-mockup']],
+    ['MIPSA — Gawad Kalasag', 'branding', 'Branding & Identity', 'old-11', ['mipsa--mipsa-medal', 'mipsa--main-logo', 'mipsa--logo', 'mipsa--branding']],
+    ['Ilihán Short Film Festival', 'campaign', 'Campaign & Event', 'old-08', ['ilihan--ilihan-dday-ppt', 'ilihan--sample-certificate']],
+    ['Dalumat', 'editorial', 'Editorial & Print', 'old-07', ['dalumat--call-for-volunteers', 'dalumat--eksmen-nabunturan']],
+    ['KASAMA — Palakasan 2026', 'campaign', 'Campaign & Event', 'old-09', ['kasama--67', 'kasama--68']],
+    ['LIFF — Lantaw-Iliyan Film Festival', 'campaign', 'Campaign & Event', 'old-10', ['liff--cover-4x', 'liff--call-for-applicants', 'liff--uno', 'liff--dos', 'liff--tres', 'liff--kwatro']],
+    ['Other(s) — Manos Campaign', 'campaign', 'Campaign & Event', 'old-12', []],
+    ['CASS EC', 'branding', 'Branding & Identity', null, ['cass--cass-logo-original', 'cass--cass-logo-pride-month', 'cass--cass-logo-gag-dp', 'cass--cover-photo-cass-cover-photo', 'cass--cover-photo-gag-cover', 'cass--pop-dance-pubmat'], 'cass--cass-logo-original'],
+    ['Email Project 01', 'email', 'Email Design', null, []],
+    ['Email Project 02', 'email', 'Email Design', null, []]
+  ];
+  const slugify = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const projects = raw.map((r, i) => {
+    const gallery = r[4].map(W);
+    const img = r[3] ? 'assets/' + r[3] + '.jpg' : (r[5] ? W(r[5]) : '');
+    return { id: String(i + 1).padStart(2, '0'), slug: slugify(r[0]), title: r[0], key: r[1], cat: r[2], img, gallery, hasImg: !!img };
+  });
+
+  const svc = [
+    ['Branding & Identity', 'Visual identities that feel intentional and lasting. Logos, brand guidelines, and systems that communicate who you are before a word is read.', ['Logo design', 'Brand guidelines', 'Visual systems']],
+    ['Campaign & Event', 'Posters, social assets, and event materials that create a moment. Visuals that stop the scroll and make people feel something.', ['Posters', 'Social media assets', 'Event materials']],
+    ['Editorial & Print', 'Magazine layouts, publication design, and print collateral that balance visual impact with readability. From concept to press-ready files.', ['Magazine layouts', 'Publications', 'Print collateral']],
+    ['Merchandise Design', 'Wearable and collectible graphics — from concept to production-ready artwork. Designs that people want to own and wear.', ['Apparel graphics', 'Collectibles', 'Production-ready artwork']],
+    ['Email Design', 'Campaigns, newsletters and announcements designed for the inbox — clear layouts that read well on any screen, delivered as ready-to-send templates.', ['Email campaigns', 'Newsletters', 'Templates']]
+  ];
+  const chipBgs = ['#8B1A2E', '#1A3828', '#3A2A22', '#5A1F3A', '#2C5040'];
+  const services = svc.map((s, i) => ({ no: String(i + 1).padStart(2, '0'), title: s[0], desc: s[1], items: s[2], chipBg: chipBgs[i] }));
+  const serviceTags = ['Branding', 'Campaigns', 'Editorial', 'Merchandise', 'Email design'];
+  const clients = ['CASS EC', 'MIPSA', 'KASAMA', 'LIFF', 'Ilihán Short Film Festival', 'IDS-MPH'];
+  const filterDefs = [['all', 'All'], ['branding', 'Branding'], ['campaign', 'Campaigns'], ['editorial', 'Editorial'], ['merch', 'Merchandise'], ['email', 'Email']];
+  const tools = [['Ps', 'Photoshop', '#1E2A44'], ['Ai', 'Illustrator', '#4A2A12'], ['Id', 'InDesign', '#4A1428'], ['Fg', 'Figma', '#2A2A2A'], ['Ca', 'Canva', '#163A3A'], ['Lr', 'Lightroom', '#1A2A40']];
+  const skills = ['Brand identity', 'Logo design', 'Layout & typography', 'Editorial design', 'Campaign & social graphics', 'Print production', 'Merchandise artwork', 'Email design'];
+  const contactRow = [
+    { k: 'Email', v: 'menesesluisafe@gmail.com', href: 'mailto:menesesluisafe@gmail.com' },
+    { k: 'LinkedIn', v: 'luisafemeneses', href: 'https://www.linkedin.com/in/luisafemeneses/' },
+    { k: 'Availability', v: 'Open for Freelance' }
+  ];
+  const projectTypes = ['Branding', 'Campaign & Event', 'Editorial & Print', 'Merchandise', 'Email Design'];
+  const timelines = ['As soon as possible', 'Within 1–2 months', 'Flexible'];
+
+  const state = { filter: 'all', ptype: 'Branding', timeline: 'Flexible' };
+
+  // ---------- ICONS ----------
+  const ICONS = {
+    grid: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/>',
+    user: '<circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/>',
+    layers: '<path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/>',
+    mail: '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>'
+  };
+  const icon = n => `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[n]}</svg>`;
+
+  // ---------- PARTS ----------
+  const card = p => `
+    <a href="#/project/${p.slug}" class="card">
+      <div style="aspect-ratio:4/5;width:100%;border-radius:18px;overflow:hidden;background:#151515;display:grid;place-items:center">
+        ${p.hasImg ? `<img src="${p.img}" alt="${p.title}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block">`
+                   : `<span style="font-size:13px;color:#5f5458">Email project</span>`}
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:start;gap:12px"><div style="display:grid;gap:4px"><span style="font-size:17px;font-weight:600;letter-spacing:-0.01em">${p.title}</span><span style="font-size:14px;color:#8A7A80">${p.cat}</span></div><span style="font-size:18px;color:#8A7A80">↗</span></div>
+    </a>`;
+
+  const eyebrow = t => `<span style="font-size:13px;font-weight:600;color:#C4567A">${t}</span>`;
+
+  // ---------- PAGES ----------
+  function home() {
+    return `
+<div data-screen-label="Home">
+  <section style="max-width:1200px;margin:0 auto;padding:clamp(40px,6vw,88px) clamp(16px,4vw,40px) clamp(56px,7vw,96px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(40px,5vw,72px);align-items:center">
+    <div style="display:grid;gap:24px;align-content:center">
+      <span style="justify-self:start;display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(143,184,154,0.1);border:1px solid rgba(143,184,154,0.3);font-size:13px;font-weight:500;color:#CFE3D5"><span style="width:7px;height:7px;border-radius:50%;background:#8FB89A"></span>Available for freelance projects</span>
+      <h1 style="margin:0;font-size:clamp(36px,4.4vw,60px);line-height:1.04;letter-spacing:-0.035em;font-weight:700;text-wrap:balance">Design for brands and organizations that <span style="font-family:'Newsreader',serif;font-style:italic;font-weight:400;color:#C4567A;letter-spacing:-0.02em">stand for something.</span></h1>
+      <p style="margin:0;font-size:clamp(16px,1.3vw,18px);line-height:1.65;color:#CFC4BA;max-width:34em;text-wrap:pretty">I'm Lalu (Luisa Fe Meneses), a graphic designer building brand identities, campaigns, and editorial layouts that are as strategic as they are meaningful.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:4px">
+        <a href="#/contact" class="btn-cream" style="display:inline-flex;align-items:center;gap:10px;padding:14px 24px;font-size:15px">Start a project <span>→</span></a>
+        <a href="#/work" class="btn-ghost" style="padding:14px 24px;font-size:15px">View my work</a>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
+        ${serviceTags.map(t => `<span style="padding:6px 12px;border-radius:999px;background:rgba(245,240,232,0.06);border:1px solid rgba(245,240,232,0.12);font-size:13px;color:#D8CCC2">${t}</span>`).join('')}
+      </div>
+    </div>
+    <div style="position:relative;max-width:520px;width:100%;justify-self:center">
+      <div style="aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:#3a2a22;box-shadow:0 30px 80px rgba(0,0,0,0.5)"><img src="assets/lalu-portrait.jpg" alt="Luisa Fe Meneses" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block"></div>
+      <a href="#/project/${projects[0].slug}" class="sticker" style="position:absolute;left:-28px;top:36px;transform:rotate(-6deg);width:132px;background:#FBF6EF;padding:7px 7px 26px;border-radius:10px;box-shadow:0 16px 34px rgba(0,0,0,0.5)">
+        <div style="aspect-ratio:1;border-radius:6px;overflow:hidden"><img src="assets/old-03.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div style="position:absolute;left:10px;bottom:6px;font-family:'Newsreader',serif;font-style:italic;font-size:13px;color:#2a0a10">Recent work</div>
+      </a>
+      <div class="sticker" style="position:absolute;right:-24px;bottom:96px;transform:rotate(4deg);width:236px;background:#EFE4D3;color:#1a0a0e;padding:12px 14px;border-radius:10px;box-shadow:0 16px 34px rgba(0,0,0,0.5);font-family:'IBM Plex Mono',monospace;font-size:10px;line-height:1.5;border-left:2px dashed #B9A68F">
+        <div style="display:flex;justify-content:space-between;font-weight:500"><span>NOW BOOKING</span><span>2026</span></div>
+        <div style="margin:6px 0 8px;font-size:11px;font-weight:500;text-transform:uppercase;line-height:1.35">Branding · Campaigns · Editorial</div>
+        <div style="display:flex;justify-content:space-between;align-items:end;gap:8px"><span style="font-weight:500">ADMIT ONE ONLY</span><span style="width:60px;height:18px;background:repeating-linear-gradient(90deg,#1a0a0e 0 1px,transparent 1px 3px,#1a0a0e 3px 5px,transparent 5px 6px)"></span></div>
+      </div>
+      <div style="position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;gap:8px;padding:8px;border-radius:18px;background:rgba(245,240,232,0.12);border:1px solid rgba(245,240,232,0.26);box-shadow:inset 0 1px 0 rgba(255,255,255,0.25),0 20px 40px rgba(0,0,0,0.35);backdrop-filter:blur(18px) saturate(150%);-webkit-backdrop-filter:blur(18px) saturate(150%)">
+        ${[['Work', 'grid', 'work'], ['Services', 'layers', 'services'], ['About', 'user', 'about'], ['Contact', 'mail', 'contact']].map(([label, ic, p]) =>
+          `<a href="#/${p}" title="${label}" aria-label="${label}" class="dock-btn" style="width:44px;height:44px;border-radius:11px;display:grid;place-items:center;background:rgba(245,240,232,0.16);border:1px solid rgba(255,255,255,0.18);color:#F5F0E8">${icon(ic)}</a>`).join('')}
+      </div>
+    </div>
+  </section>
+
+  <section style="border-top:1px solid rgba(245,240,232,0.08);border-bottom:1px solid rgba(245,240,232,0.08)">
+    <div style="max-width:1200px;margin:0 auto;padding:28px clamp(16px,4vw,40px);display:flex;flex-wrap:wrap;align-items:center;gap:16px 40px">
+      <span style="font-size:13px;color:#8A7A80;flex:none">Organizations I've designed for</span>
+      <div style="display:flex;flex-wrap:wrap;gap:12px 36px;align-items:center">
+        ${clients.map(c => `<span style="font-size:17px;font-weight:600;letter-spacing:-0.01em;color:#D8CCC2">${c}</span>`).join('')}
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1200px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(16px,4vw,40px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px;margin-bottom:36px">
+      <div style="display:grid;gap:12px;max-width:620px">
+        ${eyebrow('Services')}
+        <h2 style="margin:0;font-size:clamp(28px,3.2vw,42px);line-height:1.1;letter-spacing:-0.03em;font-weight:700">How I can help your brand</h2>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#B8AAA0">From a first logo to a full campaign, I handle design from concept to final files.</p>
+      </div>
+      <a href="#/services" class="link-btn" style="font-size:15px">See all services →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px">
+      ${services.map(s => `
+        <div class="svc-card" style="padding:28px;border-radius:20px;background:#0E0E0E;border:1px solid rgba(245,240,232,0.08);display:grid;gap:14px;align-content:start">
+          <span style="width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:${s.chipBg};font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500">${s.no}</span>
+          <h3 style="margin:0;font-size:20px;font-weight:700;letter-spacing:-0.02em">${s.title}</h3>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:#B8AAA0">${s.desc}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px">${s.items.map(i => `<span style="padding:5px 10px;border-radius:999px;background:rgba(245,240,232,0.06);font-size:12px;color:#D8CCC2">${i}</span>`).join('')}</div>
+        </div>`).join('')}
+    </div>
+  </section>
+
+  <section style="background:#0A0A0A;border-top:1px solid rgba(245,240,232,0.06)">
+    <div style="max-width:1200px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(16px,4vw,40px)">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px;margin-bottom:36px">
+        <div style="display:grid;gap:12px">
+          ${eyebrow('Selected work')}
+          <h2 style="margin:0;font-size:clamp(28px,3.2vw,42px);line-height:1.1;letter-spacing:-0.03em;font-weight:700">Recent projects</h2>
+        </div>
+        <a href="#/work" class="link-btn" style="font-size:15px">View all work →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:24px 20px">
+        ${projects.slice(0, 6).map(card).join('')}
+      </div>
+    </div>
+  </section>
+</div>`;
+  }
+
+  function work() {
+    const pick = k => k === 'all' ? projects : projects.filter(p => p.key === k);
+    return `
+<div data-screen-label="Work" style="max-width:1200px;margin:0 auto;padding:clamp(48px,6vw,88px) clamp(16px,4vw,40px) clamp(64px,8vw,112px)">
+  <div style="display:grid;gap:14px;max-width:640px;margin-bottom:32px">
+    ${eyebrow('Portfolio')}
+    <h1 style="margin:0;font-size:clamp(34px,4vw,52px);line-height:1.05;letter-spacing:-0.035em;font-weight:700">Selected work</h1>
+    <p style="margin:0;font-size:17px;line-height:1.6;color:#B8AAA0">Projects across branding, campaigns, editorial, merchandise and email design.</p>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px">
+    ${filterDefs.map(([k, label]) => `<button data-filter="${k}" aria-pressed="${state.filter === k}" style="background:${state.filter === k ? cream : 'transparent'};color:${state.filter === k ? ink : cream};border:1px solid rgba(245,240,232,0.16);border-radius:999px;padding:8px 16px;cursor:pointer;font-size:14px;font-weight:500">${label}<span style="margin-left:6px;opacity:0.6">${pick(k).length}</span></button>`).join('')}
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:28px 20px">
+    ${pick(state.filter).map(card).join('')}
+  </div>
+</div>`;
+  }
+
+  function project(slug) {
+    const idx = Math.max(0, projects.findIndex(p => p.slug === slug));
+    const p = projects[idx];
+    const next = projects[(idx + 1) % projects.length];
+    const isEmail = p.key === 'email';
+    const hero = p.gallery[0] || p.img;
+    const rest = p.gallery.slice(1);
+    const meta = [['Category', p.cat], ['Designer', 'Luisa Fe Meneses'], ['Client', 'Organization name']];
+    const blocks = [
+      ['The challenge', 'Placeholder: what the client needed and the problem the design had to solve.'],
+      ['The approach', 'Placeholder: the idea behind the visuals and how the system came together.'],
+      ['The outcome', 'Placeholder: what was delivered and how it was used or received.']
+    ];
+    const stampBg = i => i === 2 ? '#E7B3C3' : i === 5 ? '#A9C4B2' : '#EFE4D3';
+    const emailTags = ['Launch', 'Reminder', 'Story', 'Product', 'Offer', 'Last call', 'Thanks', 'Recap'];
+    let stamps = '';
+    if (isEmail) {
+      stamps = `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(46%,180px),1fr));gap:16px">${emailTags.map((t, i) => `
+        <div style="background:${stampBg(i)};padding:10px;outline:3px dotted #000;outline-offset:-2px;border-radius:12px;color:#1a0a0e;display:grid;grid-template-columns:minmax(0,1fr);gap:8px;min-width:0">
+          <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;text-transform:uppercase"><span>Nº ${String(i + 1).padStart(2, '0')}</span><span>${t}</span></div>
+          <div style="aspect-ratio:9/16;width:100%;border-radius:8px;background:rgba(26,10,14,0.08);display:grid;place-items:center;font-size:12px;color:rgba(26,10,14,0.45)">Email</div>
+        </div>`).join('')}</div>`;
+    } else if (rest.length) {
+      stamps = `<div class="gallery">${rest.map((src, i) => `
+        <button class="stamp" data-lb="${i + 1}" aria-label="View image ${i + 2} of ${p.gallery.length}" style="display:block;width:100%;border:0;background:${stampBg(i)};padding:10px;outline:3px dotted #000;outline-offset:-2px;border-radius:12px;color:#1a0a0e;text-align:left">
+          <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;text-transform:uppercase;margin-bottom:8px"><span>Nº ${String(i + 1).padStart(2, '0')}</span></div>
+          <img src="${src}" alt="${p.title} — image ${i + 2}" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;border-radius:8px">
+        </button>`).join('')}</div>`;
+    }
+    return `
+<div data-screen-label="Project">
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(36px,5vw,64px) clamp(16px,4vw,40px) 0">
+    <a href="#/work" class="muted-link" style="font-size:14px;font-weight:500">← All work</a>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px 64px;align-items:end;margin:24px 0 32px">
+      <div style="display:grid;gap:14px">
+        <span style="justify-self:start;padding:6px 12px;border-radius:999px;background:rgba(196,86,122,0.14);color:#E7B3C3;font-size:13px;font-weight:500">${p.cat}</span>
+        <h1 style="margin:0;font-size:clamp(32px,4vw,52px);line-height:1.05;letter-spacing:-0.035em;font-weight:700;text-wrap:balance">${p.title}</h1>
+      </div>
+      <p style="margin:0;font-size:17px;line-height:1.65;color:#B8AAA0">A one- or two-sentence summary of the project: who it was for and what was delivered.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px">
+      ${meta.map(([k, v]) => `<div style="padding:16px 18px;border-radius:14px;background:#0E0E0E;border:1px solid rgba(245,240,232,0.08);display:grid;gap:4px"><span style="font-size:12px;color:#8A7A80">${k}</span><span style="font-size:15px;font-weight:600">${v}</span></div>`).join('')}
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding:24px clamp(16px,4vw,40px)">
+    <div style="background:#0E0E0E;border-radius:24px;display:flex;justify-content:center;padding:clamp(16px,3vw,48px)">
+      ${hero ? `<img src="${hero}" alt="${p.title}" ${p.gallery.length ? 'class="zoomable" data-lb="0"' : ''} style="display:block;max-width:100%;max-height:80vh;object-fit:contain;border-radius:10px">`
+             : `<div style="width:100%;aspect-ratio:16/9;border-radius:10px;background:#151515;display:grid;place-items:center;font-size:13px;color:#5f5458">Project hero</div>`}
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(32px,4vw,56px) clamp(16px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px">
+    ${blocks.map(([k, v]) => `<div style="padding:28px;border-radius:20px;background:#0E0E0E;border:1px solid rgba(245,240,232,0.08);display:grid;gap:10px;align-content:start">${eyebrow(k)}<p style="margin:0;font-size:15px;line-height:1.65;color:#CFC4BA">${v}</p></div>`).join('')}
+  </div>
+  ${stamps ? `
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(24px,3vw,40px) clamp(16px,4vw,40px) clamp(48px,6vw,80px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px;margin-bottom:24px">
+      <h2 style="margin:0;font-size:clamp(22px,2.2vw,30px);letter-spacing:-0.025em;font-weight:700">${isEmail ? 'The sends' : 'More from this project'}</h2>
+      <span style="font-size:13px;color:#8A7A80">${isEmail ? '08 emails, full length' : 'Details and applications'}</span>
+    </div>
+    ${stamps}
+  </div>` : ''}
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,40px) clamp(48px,6vw,80px)">
+    <a href="#/project/${next.slug}" class="next-btn" style="width:100%;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;padding:clamp(24px,3vw,40px);border-radius:24px;background:#8B1A2E;color:#F5F0E8">
+      <span style="display:grid;gap:6px"><span style="font-size:13px;font-weight:500;color:#F2CFD9">Next project</span><span style="font-size:clamp(22px,2.6vw,34px);font-weight:700;letter-spacing:-0.03em">${next.title}</span></span>
+      <span style="width:48px;height:48px;border-radius:50%;background:#F5F0E8;color:#8B1A2E;display:grid;place-items:center;font-size:20px">→</span>
+    </a>
+  </div>
+</div>`;
+  }
+
+  function servicesPage() {
+    return `
+<div data-screen-label="Services" style="max-width:1200px;margin:0 auto;padding:clamp(48px,6vw,88px) clamp(16px,4vw,40px) clamp(64px,8vw,112px)">
+  <div style="display:grid;gap:14px;max-width:640px;margin-bottom:40px">
+    ${eyebrow('Services')}
+    <h1 style="margin:0;font-size:clamp(34px,4vw,52px);line-height:1.05;letter-spacing:-0.035em;font-weight:700">What I can do for you</h1>
+    <p style="margin:0;font-size:17px;line-height:1.6;color:#B8AAA0">Strategic, purposeful design for brands, organizations and causes, from concept to production-ready files.</p>
+  </div>
+  <div style="display:grid;gap:16px">
+    ${services.map(s => `
+      <div style="padding:clamp(24px,3vw,36px);border-radius:22px;background:#0E0E0E;border:1px solid rgba(245,240,232,0.08);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px 48px;align-items:start">
+        <div style="display:flex;gap:16px;align-items:start">
+          <span style="flex:none;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:${s.chipBg};font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500">${s.no}</span>
+          <div style="display:grid;gap:8px"><h2 style="margin:0;font-size:22px;font-weight:700;letter-spacing:-0.02em">${s.title}</h2><p style="margin:0;font-size:15px;line-height:1.65;color:#B8AAA0">${s.desc}</p></div>
+        </div>
+        <div style="display:grid;gap:10px">
+          <span style="font-size:12px;font-weight:600;color:#8A7A80">Deliverables</span>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">${s.items.map(i => `<span style="padding:6px 12px;border-radius:999px;background:rgba(245,240,232,0.06);border:1px solid rgba(245,240,232,0.1);font-size:13px;color:#D8CCC2">${i}</span>`).join('')}</div>
+        </div>
+      </div>`).join('')}
+  </div>
+</div>`;
+  }
+
+  function about() {
+    return `
+<div data-screen-label="About">
+  <section style="max-width:1200px;margin:0 auto;padding:clamp(48px,6vw,88px) clamp(16px,4vw,40px) clamp(48px,6vw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(40px,5vw,72px);align-items:center">
+    <div style="position:relative;max-width:480px;width:100%">
+      <div style="aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:#3a2a22"><img src="assets/lalu-portrait.jpg" alt="Luisa Fe Meneses" style="width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block"></div>
+      <div class="sticker" style="position:absolute;right:-20px;bottom:32px;transform:rotate(-4deg);background:#EFE4D3;color:#1a0a0e;padding:10px 14px;border-radius:10px;font-family:'IBM Plex Mono',monospace;font-size:10px;line-height:1.5;box-shadow:0 14px 30px rgba(0,0,0,0.5);border-left:2px dashed #B9A68F;white-space:nowrap"><div style="font-weight:500">ADMIT ONE ONLY</div><div style="color:#6b5647;text-transform:uppercase">Luisa Fe Meneses — Lalu</div></div>
+    </div>
+    <div style="display:grid;gap:20px">
+      ${eyebrow('About me')}
+      <h1 style="margin:0;font-size:clamp(32px,3.8vw,48px);line-height:1.08;letter-spacing:-0.035em;font-weight:700">The designer behind <span style="font-family:'Newsreader',serif;font-style:italic;font-weight:400;color:#C4567A;letter-spacing:-0.02em">the work.</span></h1>
+      <div style="display:grid;gap:16px;font-size:16px;line-height:1.75;color:#CFC4BA;max-width:38em">
+        <p style="margin:0">Hi, I'm <strong style="color:#F5F0E8;font-weight:600">Lalu</strong>.</p>
+        <p style="margin:0">I'm a graphic designer working with brands and organizations that stand for something. I build brand identities, campaigns, and editorial layouts that are as strategic as they are meaningful, because purpose still has to perform.</p>
+        <p style="margin:0">My style doesn't have a fixed address. It moves to wherever the message needs it to be.</p>
+        <p style="margin:0">I design work that makes you feel something before you've read a word.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:4px">
+        <a href="#/contact" class="btn-cream" style="padding:14px 24px;font-size:15px">Hire me →</a>
+        <a href="#" class="btn-ghost" style="display:inline-flex;align-items:center;gap:8px;padding:14px 24px;font-size:15px">↓ Download CV</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,40px) clamp(48px,6vw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px">
+    <div style="padding:clamp(24px,3vw,36px);border-radius:22px;background:#0E0E0E;border:1px solid rgba(245,240,232,0.08);display:grid;gap:20px;align-content:start">
+      <h2 style="margin:0;font-size:20px;font-weight:700;letter-spacing:-0.02em">Tools</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:12px">
+        ${tools.map(t => `<div style="display:grid;justify-items:center;gap:8px;padding:16px 8px;border-radius:16px;background:rgba(245,240,232,0.04);border:1px solid rgba(245,240,232,0.08)"><span style="width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:${t[2]};font-size:15px;font-weight:700">${t[0]}</span><span style="font-size:13px;color:#D8CCC2;text-align:center">${t[1]}</span></div>`).join('')}
+      </div>
+    </div>
+    <div style="padding:clamp(24px,3vw,36px);border-radius:22px;background:#0E0E0E;border:1px solid rgba(245,240,232,0.08);display:grid;gap:20px;align-content:start">
+      <h2 style="margin:0;font-size:20px;font-weight:700;letter-spacing:-0.02em">Skills</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">${skills.map(k => `<span style="padding:8px 14px;border-radius:999px;background:rgba(245,240,232,0.06);border:1px solid rgba(245,240,232,0.1);font-size:14px">${k}</span>`).join('')}</div>
+    </div>
+  </section>
+
+  <section style="max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,40px) clamp(48px,6vw,80px)">
+    <div style="position:relative;border-radius:24px;overflow:hidden;min-height:300px;display:flex;align-items:flex-end;background:#000">
+      <img src="assets/cv-banner.png" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.92) 10%,rgba(0,0,0,0.35) 60%,rgba(0,0,0,0.1))"></div>
+      <div style="position:relative;width:100%;padding:clamp(24px,3vw,40px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px">
+        <div style="display:grid;gap:10px;max-width:520px">
+          <h2 style="margin:0;font-size:clamp(26px,2.8vw,36px);font-weight:700;letter-spacing:-0.03em">View my <span style="font-family:'Newsreader',serif;font-style:italic;font-weight:400;color:#E7B3C3">CV.</span></h2>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:#D8CCC2">A full overview of my education, skills, and design experience. Available for download — or reach out directly and let’s talk about your next project.</p>
+        </div>
+        <a href="#" class="btn-cream" style="padding:14px 24px;font-size:15px">↓ Download CV</a>
+      </div>
+    </div>
+  </section>
+</div>`;
+  }
+
+  function contact() {
+    const opt = (list, cur, key) => list.map(t => `<button type="button" class="pill-btn" data-opt="${key}" data-val="${t}" aria-pressed="${cur === t}" style="background:${cur === t ? cream : 'transparent'};color:${cur === t ? ink : cream}">${t}</button>`).join('');
+    return `
+<div data-screen-label="Contact" style="max-width:1200px;margin:0 auto;padding:clamp(48px,6vw,88px) clamp(16px,4vw,40px) clamp(64px,8vw,112px)">
+  <div style="display:grid;gap:14px;max-width:640px;margin-bottom:40px">
+    ${eyebrow('Contact')}
+    <h1 style="margin:0;font-size:clamp(34px,4vw,52px);line-height:1.05;letter-spacing:-0.035em;font-weight:700">Let's work <span style="font-family:'Newsreader',serif;font-style:italic;font-weight:400;color:#C4567A;letter-spacing:-0.02em">together.</span></h1>
+    <p style="margin:0;font-size:17px;line-height:1.6;color:#B8AAA0">Tell me about your brand, campaign or publication. I'm open for freelance work.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:20px;align-items:start">
+    <div style="padding:clamp(24px,3vw,36px);border-radius:24px;background:#0E0E0E;border:1px solid rgba(245,240,232,0.08)">
+      <form id="contact-form" style="display:grid;gap:18px">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:16px">
+          <label style="display:grid;gap:8px;font-size:13px;font-weight:500;color:#B8AAA0">Name<input name="name" required class="field" autocomplete="name"></label>
+          <label style="display:grid;gap:8px;font-size:13px;font-weight:500;color:#B8AAA0">Email<input name="email" type="email" required class="field" autocomplete="email"></label>
+        </div>
+        <label style="display:grid;gap:8px;font-size:13px;font-weight:500;color:#B8AAA0">Brand or organization<input name="org" class="field" autocomplete="organization"></label>
+        <div style="display:grid;gap:8px"><span style="font-size:13px;font-weight:500;color:#B8AAA0">What do you need?</span>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">${opt(projectTypes, state.ptype, 'ptype')}</div>
+        </div>
+        <div style="display:grid;gap:8px"><span style="font-size:13px;font-weight:500;color:#B8AAA0">Timeline</span>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">${opt(timelines, state.timeline, 'timeline')}</div>
+        </div>
+        <label style="display:grid;gap:8px;font-size:13px;font-weight:500;color:#B8AAA0">Project details<textarea name="details" rows="5" class="field" style="resize:vertical"></textarea></label>
+        <div><button type="submit" class="btn-cream" style="padding:14px 26px;font-size:15px">Send inquiry →</button></div>
+      </form>
+    </div>
+    <div style="display:grid;gap:12px">
+      ${contactRow.map(c => `
+        <div style="padding:18px 20px;border-radius:16px;background:#0E0E0E;border:1px solid rgba(245,240,232,0.08);display:grid;gap:4px">
+          <span style="font-size:12px;color:#8A7A80">${c.k}</span>
+          ${c.href ? `<a href="${c.href}" target="_blank" rel="noopener" style="font-size:17px;font-weight:600;overflow-wrap:anywhere">${c.v} ↗</a>` : `<span style="font-size:17px;font-weight:600">${c.v}</span>`}
+        </div>`).join('')}
+    </div>
+  </div>
+</div>`;
+  }
+
+  // ---------- ROUTER ----------
+  const app = document.getElementById('app');
+  const nav = document.getElementById('nav');
+  const PAGES = { '': ['home', home, 'Lalu — Graphic Designer'], work: ['work', work, 'Work — Lalu'], services: ['services', servicesPage, 'Services — Lalu'], about: ['about', about, 'About — Lalu'], contact: ['contact', contact, 'Contact — Lalu'] };
+  let current = { page: 'home', slug: null };
+
+  function renderNav() {
+    const active = current.page === 'project' ? 'work' : current.page;
+    nav.innerHTML = [['Work', 'work'], ['Services', 'services'], ['About', 'about'], ['Contact', 'contact']].map(([label, p]) =>
+      `<a href="#/${p}" class="nav-btn" ${active === p ? 'aria-current="page"' : ''} style="background:${active === p ? 'rgba(245,240,232,0.1)' : 'transparent'};color:${active === p ? cream : muted}">${label}</a>`).join('') +
+      `<a href="#/contact" class="btn-cream" style="margin-left:6px;padding:9px 18px;font-size:14px">Hire me</a>`;
+  }
+
+  function render(scroll) {
+    const parts = location.hash.replace(/^#\/?/, '').split('/');
+    if (parts[0] === 'project' && parts[1]) {
+      current = { page: 'project', slug: parts[1] };
+      const p = projects.find(x => x.slug === parts[1]) || projects[0];
+      app.innerHTML = project(p.slug);
+      document.title = p.title + ' — Lalu';
+    } else {
+      const def = PAGES[parts[0]] || PAGES[''];
+      current = { page: def[0], slug: null };
+      app.innerHTML = def[1]();
+      document.title = def[2];
+    }
+    renderNav();
+    if (scroll) window.scrollTo(0, 0);
+  }
+
+  window.addEventListener('hashchange', () => { if (location.hash !== '#top') render(true); });
+  document.getElementById('to-top').addEventListener('click', e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+  // clicks inside the page (filters, option pills, lightbox)
+  app.addEventListener('click', e => {
+    const f = e.target.closest('[data-filter]');
+    if (f) { state.filter = f.dataset.filter; app.innerHTML = work(); return; }
+    const o = e.target.closest('[data-opt]');
+    if (o) {
+      state[o.dataset.opt] = o.dataset.val;
+      o.parentElement.querySelectorAll('[data-opt]').forEach(b => {
+        const on = b === o;
+        b.style.background = on ? cream : 'transparent'; b.style.color = on ? ink : cream; b.setAttribute('aria-pressed', on);
+      });
+      return;
+    }
+    const z = e.target.closest('[data-lb]');
+    if (z) openLightbox(+z.dataset.lb);
+  });
+
+  // contact form → opens the visitor's email app with the message filled in
+  app.addEventListener('submit', e => {
+    if (e.target.id !== 'contact-form') return;
+    e.preventDefault();
+    const d = new FormData(e.target);
+    const subject = 'Project inquiry — ' + state.ptype + (d.get('org') ? ' (' + d.get('org') + ')' : '');
+    const body = [
+      'Name: ' + d.get('name'),
+      'Email: ' + d.get('email'),
+      'Brand or organization: ' + (d.get('org') || '—'),
+      'What I need: ' + state.ptype,
+      'Timeline: ' + state.timeline,
+      '',
+      d.get('details') || ''
+    ].join('\n');
+    location.href = 'mailto:menesesluisafe@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  });
+
+  // ---------- LIGHTBOX ----------
+  const lb = document.getElementById('lightbox'), lbImg = document.getElementById('lb-img'), lbCount = document.getElementById('lb-count');
+  let lbList = [], lbIdx = 0;
+  function showLb() { lbImg.src = lbList[lbIdx]; lbCount.textContent = (lbIdx + 1) + ' / ' + lbList.length; }
+  function openLightbox(i) {
+    const p = projects.find(x => x.slug === current.slug);
+    if (!p || !p.gallery.length) return;
+    lbList = p.gallery; lbIdx = i; showLb();
+    lb.classList.add('open'); document.body.style.overflow = 'hidden';
+    document.getElementById('lb-close').focus();
+  }
+  function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  const step = d => { lbIdx = (lbIdx + d + lbList.length) % lbList.length; showLb(); };
+  document.getElementById('lb-close').onclick = closeLb;
+  document.getElementById('lb-prev').onclick = e => { e.stopPropagation(); step(-1); };
+  document.getElementById('lb-next').onclick = e => { e.stopPropagation(); step(1); };
+  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') step(-1);
+    if (e.key === 'ArrowRight') step(1);
+  });
+
+  render(false);
+})();
+</script>
+</body>
+</html>
