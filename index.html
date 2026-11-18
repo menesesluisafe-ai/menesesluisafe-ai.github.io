@@ -13,6 +13,7 @@
 <meta property="og:url" content="https://menesesluisafe-ai.github.io/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -56,6 +57,7 @@ img{max-width:100%}
 
 /* stickers hide on small screens (was the `narrow` check) */
 @media (max-width:759px){.sticker{display:none !important}}
+@media (max-width:600px){.hdr-hire{display:none !important}}
 
 /* gallery: natural image heights */
 .gallery{columns:3 220px;column-gap:16px}
@@ -80,7 +82,7 @@ img{max-width:100%}
 
 <header style="position:sticky;top:0;z-index:50;background:rgba(0,0,0,0.7);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid rgba(245,240,232,0.08)">
   <div style="max-width:1200px;margin:0 auto;padding:12px clamp(16px,4vw,40px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px">
-    <a href="#/" style="display:flex;align-items:baseline;gap:10px;color:#F5F0E8"><span style="font-family:'Newsreader',serif;font-style:italic;font-size:24px;line-height:1">Lalu</span><span style="font-size:12px;color:#8A7A80">Graphic Designer</span></a>
+    <a href="#/" aria-label="Lalu, home" style="display:flex;align-items:center;gap:10px;color:#F5F0E8"><img src="assets/logo/L-white.svg" alt="" width="36" height="28" style="display:block;height:28px;width:auto"><span style="font-family:'Newsreader',serif;font-style:italic;font-size:24px;line-height:1">Lalu</span><span style="font-size:12px;color:#8A7A80">Graphic Designer</span></a>
     <nav id="nav" style="display:flex;align-items:center;gap:4px;flex-wrap:wrap"></nav>
   </div>
 </header>
@@ -105,7 +107,7 @@ img{max-width:100%}
     <a href="#top" id="to-top" class="tile" style="min-height:110px;padding:16px;border-radius:18px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;background:rgba(245,240,232,0.07);border:1px solid rgba(255,255,255,0.2);box-shadow:inset 0 1px 0 rgba(255,255,255,0.28),0 14px 34px rgba(0,0,0,0.3);backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);color:#F5F0E8"><span style="font-size:12px;color:#E9DCCB">Back to</span><span style="display:flex;justify-content:space-between;align-items:end;gap:8px;font-size:18px;font-weight:600;letter-spacing:-0.01em">Top<span style="font-weight:400">↑</span></span></a>
   </div>
   <div style="position:relative;max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 24px;padding:16px clamp(16px,4vw,40px) 24px">
-    <span style="font-family:'Newsreader',serif;font-style:italic;font-size:20px">Lalu</span>
+    <span style="display:flex;align-items:center;gap:8px"><img src="assets/logo/L-white.svg" alt="" width="31" height="24" style="display:block;height:24px;width:auto"><span style="font-family:'Newsreader',serif;font-style:italic;font-size:20px">Lalu</span></span>
     <span style="font-size:13px;color:#E9DCCB">© 2026 Luisa Fe Meneses</span>
   </div>
 </footer>
@@ -196,7 +198,7 @@ img{max-width:100%}
   const slugify = s => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   const projects = raw.map((r, i) => Object.assign({}, r, {
     id: String(i + 1).padStart(2, '0'), slug: slugify(r.title),
-    img: W(r.cover), coverPos: r.coverPos || '50% 50%', gallery: r.gallery.map(W)
+    img: W(r.cover), thumb: 'assets/thumbs/' + r.cover + '.jpg', coverPos: r.coverPos || '50% 50%', gallery: r.gallery.map(W)
   }));
 
   const svc = [
@@ -236,7 +238,7 @@ img{max-width:100%}
   const card = p => `
     <a href="#/project/${p.slug}" class="card">
       <div style="aspect-ratio:4/5;width:100%;border-radius:18px;overflow:hidden;background:#151515">
-        <img src="${p.img}" alt="${p.title}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:${p.coverPos};display:block">
+        <img src="${p.thumb}" alt="${p.title}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:${p.coverPos};display:block">
       </div>
       <div style="display:flex;justify-content:space-between;align-items:start;gap:12px"><div style="display:grid;gap:4px"><span style="font-size:17px;font-weight:600;letter-spacing:-0.01em">${p.title}</span><span style="font-size:14px;color:#8A7A80">${p.cat}</span></div><span style="font-size:18px;color:#8A7A80">↗</span></div>
     </a>`;
@@ -530,7 +532,7 @@ img{max-width:100%}
     const active = current.page === 'project' ? 'work' : current.page;
     nav.innerHTML = [['Work', 'work'], ['Services', 'services'], ['About', 'about'], ['Contact', 'contact']].map(([label, p]) =>
       `<a href="#/${p}" class="nav-btn" ${active === p ? 'aria-current="page"' : ''} style="background:${active === p ? 'rgba(245,240,232,0.1)' : 'transparent'};color:${active === p ? cream : muted}">${label}</a>`).join('') +
-      `<a href="#/contact" class="btn-cream" style="margin-left:6px;padding:9px 18px;font-size:14px">Hire me</a>`;
+      `<a href="#/contact" class="btn-cream hdr-hire" style="margin-left:6px;padding:9px 18px;font-size:14px">Hire me</a>`;
   }
 
   function render(scroll) {
