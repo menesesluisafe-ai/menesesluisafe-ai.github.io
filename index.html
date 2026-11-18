@@ -65,12 +65,14 @@ img{max-width:100%}
 #lightbox{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,0.92);display:none;align-items:center;justify-content:center;padding:clamp(12px,4vw,48px)}
 #lightbox.open{display:flex}
 #lightbox img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,0.6)}
-.lb-btn{position:absolute;width:48px;height:48px;border-radius:50%;border:1px solid rgba(245,240,232,0.25);background:rgba(245,240,232,0.1);color:#F5F0E8;font-size:20px;cursor:pointer;display:grid;place-items:center;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+#lightbox.tall{align-items:flex-start;overflow-y:auto;padding-top:72px}
+#lightbox.tall img{max-height:none;width:min(600px,100%);height:auto}
+.lb-btn{position:fixed;width:48px;height:48px;border-radius:50%;border:1px solid rgba(245,240,232,0.25);background:rgba(245,240,232,0.1);color:#F5F0E8;font-size:20px;cursor:pointer;display:grid;place-items:center;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .lb-btn:hover{background:rgba(245,240,232,0.2)}
 .lb-close{top:16px;right:16px}
 .lb-prev{left:16px;top:50%;transform:translateY(-50%)}
 .lb-next{right:16px;top:50%;transform:translateY(-50%)}
-.lb-count{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B8AAA0}
+.lb-count{background:rgba(0,0,0,0.7);padding:4px 10px;border-radius:999px;position:fixed;bottom:18px;left:50%;transform:translateX(-50%);font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B8AAA0}
 </style>
 </head>
 <body>
@@ -171,9 +173,27 @@ img{max-width:100%}
       title: 'CASS EC', key: 'branding', cat: 'Branding & Identity', client: 'CASS Arachnids',
       cover: 'cass--cass-logo-pride-month', gallery: ['cass--cass-logo-original', 'cass--cass-logo-pride-month', 'cass--cass-logo-gag-dp', 'cass--cover-photo-cass-cover-photo', 'cass--cover-photo-gag-cover', 'cass--pop-dance-pubmat'],
       summary: 'Logos and social media covers for the College of Arts and Social Sciences.',
+    },
+    {
+      title: 'BUNKY', key: 'email', cat: 'Email Design', client: 'BUNKY', studio: 'JH Studio', tall: true,
+      cover: 'email--why-customers-keep-coming-back-to-bunky', coverPos: '50% 0%',
+      gallery: ['email--why-customers-keep-coming-back-to-bunky', 'email--sriracha-lime-where-the-heat-meets-the-tang', 'email--the-game-day-snack-lineup-upgraded', 'email--the-story-behind-every-bag', 'email--why-we-pop-in-coconut-oil-never-fry'],
+      summary: 'Email designs for BUNKY protein popcorn, made under JH Studio.'
+    },
+    {
+      title: 'BASBAS', key: 'email', cat: 'Email Design', client: 'BASBAS', studio: 'JH Studio', tall: true,
+      cover: 'email--email-1-abandoned-checkout', coverPos: '50% 0%',
+      gallery: ['email--email-1-abandoned-checkout', 'email--email-2'],
+      summary: 'Abandoned-checkout emails for BASBAS, made under JH Studio.'
+    },
+    {
+      title: 'Swift Running — APEX1', key: 'email', cat: 'Email Design', client: 'Swift Running', studio: 'JH Studio', tall: true,
+      cover: 'email--23-meet-the-apex1', coverPos: '50% 0%',
+      gallery: ['email--23-meet-the-apex1'],
+      summary: 'Pre-order email for the APEX1 race-day shoe by Swift Running, made under JH Studio.'
     }
   ];
-  const slugify = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const slugify = s => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   const projects = raw.map((r, i) => Object.assign({}, r, {
     id: String(i + 1).padStart(2, '0'), slug: slugify(r.title),
     img: W(r.cover), coverPos: r.coverPos || '50% 50%', gallery: r.gallery.map(W)
@@ -190,7 +210,7 @@ img{max-width:100%}
   const services = svc.map((s, i) => ({ no: String(i + 1).padStart(2, '0'), title: s[0], desc: s[1], items: s[2], chipBg: chipBgs[i] }));
   const serviceTags = ['Branding', 'Campaigns', 'Editorial', 'Merchandise', 'Email design'];
   const clients = ['CASS EC', 'MIPSA', 'KASAMA', 'LIFF', 'Ilihán Short Film Festival', 'IDS-MPH'];
-  const filterDefs = [['all', 'All'], ['branding', 'Branding'], ['campaign', 'Campaigns'], ['editorial', 'Editorial'], ['merch', 'Merchandise']];
+  const filterDefs = [['all', 'All'], ['branding', 'Branding'], ['campaign', 'Campaigns'], ['editorial', 'Editorial'], ['merch', 'Merchandise'], ['email', 'Email']];
   const tools = [['Ps', 'Photoshop', '#1E2A44'], ['Ai', 'Illustrator', '#4A2A12'], ['Id', 'InDesign', '#4A1428'], ['Fg', 'Figma', '#2A2A2A'], ['Ca', 'Canva', '#163A3A'], ['Lr', 'Lightroom', '#1A2A40']];
   const skills = ['Brand identity', 'Logo design', 'Layout & typography', 'Editorial design', 'Campaign & social graphics', 'Print production', 'Merchandise artwork', 'Email design'];
   const contactRow = [
@@ -331,8 +351,14 @@ img{max-width:100%}
     const p = projects[idx];
     const next = projects[(idx + 1) % projects.length];
     const hero = p.gallery[0];
-    const rest = p.gallery.slice(1);
-    const meta = [['Category', p.cat], ['Designer', 'Luisa Fe Meneses'], ['Client', p.client]];
+    const rest = p.tall ? [] : p.gallery.slice(1);
+    const meta = [['Category', p.cat], ['Designer', 'Luisa Fe Meneses'], ['Client', p.client]].concat(p.studio ? [['Studio', p.studio]] : []);
+    // emails are very tall: show every email at full length, side by side
+    const heroHtml = p.tall
+      ? `<div style="width:100%;display:grid;grid-template-columns:${p.gallery.length === 1 ? 'minmax(0,600px)' : 'repeat(auto-fill,minmax(min(100%,240px),1fr))'};justify-content:center;gap:20px;align-items:start">
+          ${p.gallery.map((src, i) => `<button class="stamp" data-lb="${i}" aria-label="View email ${i + 1} of ${p.gallery.length}" style="display:block;width:100%;border:0;padding:0;background:none;border-radius:10px;overflow:hidden"><img src="${src}" alt="${p.title} — email ${i + 1}" loading="lazy" decoding="async" style="display:block;width:100%;height:auto"></button>`).join('')}
+        </div>`
+      : `<img src="${hero}" alt="${p.title}" class="zoomable" data-lb="0" style="display:block;max-width:100%;max-height:80vh;object-fit:contain;border-radius:10px">`;
     const stampBg = i => i === 2 ? '#E7B3C3' : i === 5 ? '#A9C4B2' : '#EFE4D3';
     let stamps = '';
     if (rest.length) {
@@ -362,7 +388,7 @@ img{max-width:100%}
   </div>
   <div style="max-width:1200px;margin:0 auto;padding:24px clamp(16px,4vw,40px)">
     <div style="background:#0E0E0E;border-radius:24px;display:flex;justify-content:center;padding:clamp(16px,3vw,48px)">
-      <img src="${hero}" alt="${p.title}" class="zoomable" data-lb="0" style="display:block;max-width:100%;max-height:80vh;object-fit:contain;border-radius:10px">
+      ${heroHtml}
     </div>
   </div>
   ${stamps ? `
@@ -570,6 +596,7 @@ img{max-width:100%}
     const p = projects.find(x => x.slug === current.slug);
     if (!p || !p.gallery.length) return;
     lbList = p.gallery; lbIdx = i; showLb();
+    lb.classList.toggle('tall', !!p.tall); lb.scrollTop = 0;
     lb.classList.add('open'); document.body.style.overflow = 'hidden';
     document.getElementById('lb-close').focus();
   }
