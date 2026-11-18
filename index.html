@@ -12,8 +12,10 @@
 <meta property="og:image" content="https://menesesluisafe-ai.github.io/assets/og.jpg">
 <meta property="og:url" content="https://menesesluisafe-ai.github.io/">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="icon" href="assets/favicon-l.svg?v=2" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png?v=2" type="image/png" sizes="32x32">
+<link rel="shortcut icon" href="favicon.ico?v=2">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -211,7 +213,7 @@ img{max-width:100%}
   const chipBgs = ['#8B1A2E', '#1A3828', '#3A2A22', '#5A1F3A', '#2C5040'];
   const services = svc.map((s, i) => ({ no: String(i + 1).padStart(2, '0'), title: s[0], desc: s[1], items: s[2], chipBg: chipBgs[i] }));
   const serviceTags = ['Branding', 'Campaigns', 'Editorial', 'Merchandise', 'Email design'];
-  const clients = ['CASS EC', 'MIPSA', 'KASAMA', 'LIFF', 'Ilihán Short Film Festival', 'IDS-MPH'];
+  const clients = ['CASS EC', 'MIPSA', 'KASAMA', 'LIFF', 'Ilihán Short Film Festival'];
   const filterDefs = [['all', 'All'], ['branding', 'Branding'], ['campaign', 'Campaigns'], ['editorial', 'Editorial'], ['merch', 'Merchandise'], ['email', 'Email']];
   const tools = [['Ps', 'Photoshop', '#1E2A44'], ['Ai', 'Illustrator', '#4A2A12'], ['Id', 'InDesign', '#4A1428'], ['Fg', 'Figma', '#2A2A2A'], ['Ca', 'Canva', '#163A3A'], ['Lr', 'Lightroom', '#1A2A40']];
   const skills = ['Brand identity', 'Logo design', 'Layout & typography', 'Editorial design', 'Campaign & social graphics', 'Print production', 'Merchandise artwork', 'Email design'];
@@ -323,7 +325,7 @@ img{max-width:100%}
         <a href="#/work" class="link-btn" style="font-size:15px">View all work →</a>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:24px 20px">
-        ${projects.slice(0, 6).map(card).join('')}
+        ${['bunky', 'basbas', 'kasama', 'fashion-magazine', 'cass-ec-solidarity-walk', 'cass-merch-arachnida'].map(s => projects.find(p => p.slug === s)).filter(Boolean).map(card).join('')}
       </div>
     </div>
   </section>
